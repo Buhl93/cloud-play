@@ -1,0 +1,18 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding-inline: max(15px, 30vw);
+
+  &__logoHolder {
+    font-size: 30px;
+
+    &-arrow {
+      display: inline-block;
+      font-size: 38px;
+      padding-right: 15px;
+      transform: translateY(5px);
+    }
+  }
+}

@@ -1,0 +1,14 @@
+@use "../../styles/colors";
+@use "../../styles/animations";
+
+.wishlistBtn {
+  font-size: clamp(25px, 4vw, 30px);
+  cursor: pointer;
+  opacity: 1;
+  color: rgba(colors.$fontlight, 0.7);
+  @include animations.transition(150ms);
+
+  &:hover {
+    color: rgba(colors.$fontlight, 1);
+  }
+}
