@@ -1,0 +1,14 @@
+.wishlist {
+    max-width: calc(100% - 160px);
+    margin: 0 auto;
+  
+    &__items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+  
+      &-item {
+        width: calc((100% / 3) - ((30px * 2) / 3));
+      }
+    }
+  }

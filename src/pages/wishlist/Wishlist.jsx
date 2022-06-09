@@ -1,24 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useWishlist } from "../../hooks/useWishlist";
 
-import WishlistButton from "../../components/wishlistButton/WishlistButton";
 import MovieItem from "../../components/movieItem/MovieItem";
 
+import "./Wishlist.scss";
+
 const Wishlist = () => {
-  const { wishlist, addToWishlist, removeFromWishlist } = useWishlist();
+  const { wishlist } = useWishlist();
 
   useEffect(() => {
-    console.log(wishlist);
+    //console.log(wishlist);
   }, [wishlist]);
 
   return (
-    <div>
-      <div>Wishlist</div>
-      <div style={{ display: "flex", flexWrap: "wrap" }}>
+    <div className="wishlist">
+      <h1>My Wishlist</h1>
+      <div className="wishlist__items">
         {wishlist &&
           wishlist.map((item) => {
             return (
-              <MovieItem key={item.id} item={item} />
+              <div key={item.id} className="wishlist__items-item">
+                <MovieItem item={item} />
+              </div>
             );
           })}
       </div>

@@ -4,7 +4,7 @@
 .movieItem {
   &__thumb {
     position: relative;
-
+    height: min(15vw, 200px);
     &:hover {
       .movieItem__thumb-imageHolder:after {
         opacity: 0.7;
@@ -38,17 +38,12 @@
     }
 
     &-imageHolder {
-      border-radius: 15px;
-      cursor: grab;
       width: 100%;
-
+      height: 100%;
       &:after {
         content: "";
         position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 4px;
-        right: 0;
+        inset: 0;
         background-color: colors.$fontdark;
         border-radius: 15px;
         opacity: 0;
@@ -58,9 +53,21 @@
 
       img {
         width: 100%;
+        height: 100%;
         border-radius: 15px;
-        object-fit: contain;
+        object-fit: cover;
         box-shadow: 5px 8px 8px rgba(colors.$fontdark, 0.2);
+      }
+
+      .imagePlaceholder {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(colors.$fontdark, .5);
+        border-radius: 15px;
+        font-size: 30px;
       }
     }
 

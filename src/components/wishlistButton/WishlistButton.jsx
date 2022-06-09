@@ -23,7 +23,7 @@ const WishlistButton = ({ id, title, cover }) => {
     saveToLocalStorage(wishlist);
     // retrieves current wishlist stored in local storage
     setCurrentWishlist(JSON.parse(localStorage.getItem("wishlisted-movies")));
-    console.log(wishlist);
+    // console.log(wishlist);
   }, [wishlist]);
 
   useEffect(() => {

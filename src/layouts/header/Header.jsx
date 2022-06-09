@@ -15,7 +15,7 @@ const Header = () => {
           CloudPlay
         </div>
       </Link>
-      <Link to="/wishlist">Wishlist</Link>
+      <Link className="header__link" to="/wishlist">Wishlist</Link>
     </div>
   );
 };

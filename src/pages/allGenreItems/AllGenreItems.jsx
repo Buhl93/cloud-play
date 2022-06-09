@@ -4,11 +4,13 @@ import { useParams } from "react-router-dom";
 
 import MovieItem from "../../components/movieItem/MovieItem";
 
+import "./AllGenreItems.scss";
+
 const AllGenreItems = () => {
   const { genre } = useParams();
   const url = `https://feed.entertainment.tv.theplatform.eu/f/jGxigC/bb-all-pas?form=json&lang=da&byTags=genre:${genre}`;
   const { data, error, isPending } = useFetch(url);
-  const { entries: items } = data; 
+  const { entries: items } = data;
 
   useEffect(() => {
     if (data.length > 0) {
@@ -17,14 +19,17 @@ const AllGenreItems = () => {
   }, [data]);
 
   return (
-    <div>
+    <div className="allGenreItems">
       <h1>{genre}</h1>
-      <div style={{ display: "flex", flexWrap: "wrap" }}>
+      <div className="allGenreItems__items">
         {isPending && <div>Loading items...</div>}
-
         {error && <div>Something went wrong</div>}
-
-        {items.length > 0 && items.map((item) => <MovieItem key={item.id} item={item} />)}
+        {items.length > 0 &&
+          items.map((item) => (
+            <div className="allGenreItems__items-item">
+              <MovieItem key={item.id} item={item} />
+            </div>
+          ))}
       </div>
     </div>
   );

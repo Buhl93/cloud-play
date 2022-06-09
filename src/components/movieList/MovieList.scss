@@ -1,4 +1,5 @@
 .movieList {
+  height: min(23vw, 330px);
   &-link {
     margin-left: 80px;
     margin-bottom: 20px;
@@ -7,6 +8,7 @@
 
 .swiper {
   cursor: grab;
+  width: calc(100% + 0px);
   .swiper-wrapper {
     margin-left: 80px;
   }

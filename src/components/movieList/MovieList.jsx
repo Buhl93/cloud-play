@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useFetch } from "../../hooks/useFetch";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -21,22 +21,39 @@ const MovieList = ({ genre }) => {
         </Button>
       </div>
 
-      <div style={{ display: "flex" }}>
-        {isPending && <div>Loading items...</div>}
-
+      <div>
         {error && <div>Something went wrong</div>}
 
-        {items.length > 0 && (
-          <Swiper spaceBetween={30} slidesPerView={3.5}>
-            {items.map((item) => {
+        <Swiper
+          spaceBetween={30}
+          slidesPerView={3.5}
+          breakpoints={{
+            // when window width is >= 640px
+            1600: {
+              slidesPerView: 5.5
+            },
+            1400: {
+              slidesPerView: 4.5
+            },
+            // when window width is >= 768px
+            768: {
+              slidesPerView: 3.5
+            },
+            0:{
+              slidesPerView: 2.6
+            }
+          }}
+        >
+          {isPending && <div>loading...</div>}
+          {items.length > 0 &&
+            items.map((item) => {
               return (
-                <SwiperSlide>
+                <SwiperSlide key={item.id}>
                   <MovieItem item={item} />
                 </SwiperSlide>
               );
             })}
-          </Swiper>
-        )}
+        </Swiper>
       </div>
     </div>
   );

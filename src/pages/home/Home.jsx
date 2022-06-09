@@ -23,8 +23,8 @@ const Home = () => {
       <MovieList genre="crime" />
       <Headline headline="documentary" />
       <MovieList genre="documentary" />
-      <Headline headline="horro" />
-      <MovieList genre="horro" />
+      <Headline headline="horror" />
+      <MovieList genre="horror" />
     </>
   );
 };

@@ -1,0 +1,90 @@
+@use "../../styles/colors";
+@use "../../styles/animations";
+
+.itemDetails {
+  max-width: calc(100% - 160px);
+  margin: 0 auto;
+  padding-top: 100px;
+
+  &__mainInfo {
+    display: flex;
+
+    &-header {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 80px;
+    }
+
+    &-imageHolder {
+      width: 20vw;
+      height: 30vw;
+      img {
+        height: 100%;
+        width: 100%;
+        border-radius: 15px;
+        object-fit: cover;
+        box-shadow: 5px 8px 8px rgba(colors.$fontdark, 0.2);
+      }
+
+      .imagePlaceholder {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(colors.$bg-darker, 1);
+        border-radius: 15px;
+        font-size: 30px;
+      }
+    }
+  }
+
+  &__secondaryInfo {
+    display: flex;
+    gap: 10px;
+    padding-top: 20px;
+    &-genre {
+      display: flex;
+      gap: 10px;
+    }
+  }
+
+  &__description {
+    padding-top: 20px;
+  }
+
+  &__participants {
+    padding-top: 20px;
+
+    &-crew {
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: 10px;
+    }
+  }
+}
+
+.backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      colors.$bg-dark 25%,
+      rgba(colors.$bg-dark, 0.3)
+    );
+  }
+}
