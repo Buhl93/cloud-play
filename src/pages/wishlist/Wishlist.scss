@@ -1,14 +1,38 @@
+@use "../../styles/screens";
+
 .wishlist {
-    max-width: calc(100% - 160px);
-    margin: 0 auto;
-  
-    &__items {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-  
-      &-item {
-        width: calc((100% / 3) - ((30px * 2) / 3));
-      }
+  max-width: calc(100% - 160px);
+  margin: 0 auto;
+
+  h1{
+    margin-bottom: 30px;
+  }
+
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+
+    &-item {
+      width: calc((100% / 4) - ((30px * 3) / 4));
     }
   }
+}
+
+@media (max-width: screens.$media-xl) {
+  .wishlist__items-item {
+    width: calc((100% / 3) - ((30px * 2) / 3));
+  }
+}
+
+@media (max-width: screens.$media-md) {
+  .wishlist__items-item {
+    width: calc((100% / 2) - ((30px * 1) / 2));
+  }
+}
+
+@media (max-width: screens.$media-sm) {
+  .wishlist {
+    max-width: calc(100% - 60px);
+  }
+}

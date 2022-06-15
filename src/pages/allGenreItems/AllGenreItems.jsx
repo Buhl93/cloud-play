@@ -8,15 +8,17 @@ import "./AllGenreItems.scss";
 
 const AllGenreItems = () => {
   const { genre } = useParams();
-  const url = `https://feed.entertainment.tv.theplatform.eu/f/jGxigC/bb-all-pas?form=json&lang=da&byTags=genre:${genre}`;
+  const url = `https://feed.entertainment.tv.theplatform.eu/f/jGxigC/bb-all-pas?form=json&fields=id,title,plprogram$thumbnails&byTags=genre:${genre}`;
   const { data, error, isPending } = useFetch(url);
   const { entries: items } = data;
 
+  /*
   useEffect(() => {
-    if (data.length > 0) {
-      console.log(data);
+    if (items.length > 0) {
+      console.log(items);
     }
-  }, [data]);
+  }, [items]);
+  */
 
   return (
     <div className="allGenreItems">
@@ -26,8 +28,8 @@ const AllGenreItems = () => {
         {error && <div>Something went wrong</div>}
         {items.length > 0 &&
           items.map((item) => (
-            <div className="allGenreItems__items-item">
-              <MovieItem key={item.id} item={item} />
+            <div className="allGenreItems__items-item" key={item.id}>
+              <MovieItem item={item} />
             </div>
           ))}
       </div>

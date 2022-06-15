@@ -1,15 +1,25 @@
+@use "../../styles/screens";
+@use "../../styles/spaces";
+
 .movieList {
-  height: min(23vw, 330px);
+  margin-bottom: 30px;
+  min-height: 20vw;
   &-link {
-    margin-left: 80px;
+    margin-left: spaces.$left-edge;
     margin-bottom: 20px;
   }
 }
 
 .swiper {
   cursor: grab;
-  width: calc(100% + 0px);
   .swiper-wrapper {
-    margin-left: 80px;
+    margin-left: spaces.$left-edge;
+  }
+}
+
+@media (max-width: screens.$media-md) {
+  .swiper .swiper-wrapper,
+  .movieList-link {
+    margin-left: spaces.$left-edge-md;
   }
 }

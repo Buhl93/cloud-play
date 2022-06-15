@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { useFetch } from "../../hooks/useFetch";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -9,9 +9,17 @@ import "./MovieList.scss";
 import "swiper/scss";
 
 const MovieList = ({ genre }) => {
-  const url = `https://feed.entertainment.tv.theplatform.eu/f/jGxigC/bb-all-pas?form=json&lang=da&range=1-20&byTags=genre:${genre}`;
+  const url = `https://feed.entertainment.tv.theplatform.eu/f/jGxigC/bb-all-pas?form=json&lang=da&range=1-20&fields=id,title,plprogram$thumbnails&byTags=genre:${genre}`;
   const { data, error, isPending } = useFetch(url);
   const { entries: items } = data;
+
+  /*
+  useEffect(() => {
+    if (items.length > 0) {
+      console.log(items);
+    }
+  }, [items]);
+  */
 
   return (
     <div className="movieList">
@@ -27,21 +35,24 @@ const MovieList = ({ genre }) => {
         <Swiper
           spaceBetween={30}
           slidesPerView={3.5}
+          loop={false}
           breakpoints={{
             // when window width is >= 640px
             1600: {
-              slidesPerView: 5.5
+              slidesPerView: 5.5,
             },
             1400: {
-              slidesPerView: 4.5
+              slidesPerView: 4.5,
             },
             // when window width is >= 768px
             768: {
-              slidesPerView: 3.5
+              slidesPerView: 3.5,
+              spaceBetween: 30,
             },
-            0:{
-              slidesPerView: 2.6
-            }
+            0: {
+              slidesPerView: 2.6,
+              spaceBetween: 15,
+            },
           }}
         >
           {isPending && <div>loading...</div>}

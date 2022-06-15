@@ -10,7 +10,6 @@ import "./MovieItem.scss";
 
 const MovieItem = ({ item }) => {
   const [itemTitle, setItemTitle] = useState("");
-  const [itemCover, setItemCover] = useState("");
   const [id, setId] = useState("");
   const { coverWide } = useImage(item, "coverWide");
 
@@ -45,7 +44,7 @@ const MovieItem = ({ item }) => {
               </div>
             </Link>
             <div className="movieItem__thumb-wishlist">
-              <WishlistButton id={id} title={itemTitle} cover={itemCover} />
+              <WishlistButton id={id} title={itemTitle} cover={coverWide} />
             </div>
           </div>
 

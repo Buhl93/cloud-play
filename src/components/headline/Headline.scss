@@ -1,3 +1,13 @@
-.headline{
-    margin-inline-start: 80px;
+@use "../../styles/spaces";
+@use "../../styles/screens";
+
+.headline {
+  margin-inline-start: spaces.$left-edge;
+  margin-bottom: 20px;
+}
+
+@media (max-width: screens.$media-md) {
+    .headline {
+        margin-inline-start: spaces.$left-edge-md;
+    }
 }

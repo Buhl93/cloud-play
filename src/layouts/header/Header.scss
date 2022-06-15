@@ -1,16 +1,18 @@
 @use "../../styles/colors";
 @use "../../styles/animations";
+@use "../../styles/screens";
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 80px;
-  padding-inline: max(15px, 30vw);
+  width: 50%;
+  margin-inline: auto;
 
   &__logoHolder {
     font-size: 30px;
-
+    transform: translateY(-10px);
     &-arrow {
       display: inline-block;
       font-size: 38px;
@@ -24,5 +26,11 @@
     &:hover {
       color: colors.$primary;
     }
+  }
+}
+
+@media (max-width: screens.$media-sm) {
+  .header {
+    width: calc(100% - 60px);
   }
 }

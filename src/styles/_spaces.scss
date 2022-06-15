@@ -1,0 +1,17 @@
+@use "./screens";
+
+$left-edge: 80px;
+$left-edge-md: 30px;
+
+/*
+@mixin left-edge($left-edge-base) {
+  #Contents {
+    margin-left: $left-edge-base;
+  }
+}
+
+@media (max-width: screens.$media-md) {
+  @include left-edge($left-edge-base: 30px);
+}
+
+*/

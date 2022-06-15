@@ -1,5 +1,6 @@
 @use "../../styles/colors";
 @use "../../styles/animations";
+@use "../../styles/screens";
 
 .itemDetails {
   max-width: calc(100% - 160px);
@@ -14,11 +15,15 @@
       flex-direction: column;
       justify-content: center;
       padding-left: 80px;
+
+      h1{
+        margin-bottom: 15px;
+      }
     }
 
     &-imageHolder {
-      width: 20vw;
-      height: 30vw;
+      width: max(200px, 20vw);
+      height: max(300px, 30vw);
       img {
         height: 100%;
         width: 100%;
@@ -86,5 +91,28 @@
       colors.$bg-dark 25%,
       rgba(colors.$bg-dark, 0.3)
     );
+  }
+}
+
+@media (max-width: screens.$media-md) {
+  .itemDetails {
+    max-width: calc(100% - 60px);
+    &__mainInfo {
+      &-header {
+        padding-left: clamp(30px, 5vw, 80px);
+      }
+    }
+  }
+}
+
+@media (max-width: screens.$media-xs) {
+  .itemDetails {
+    &__mainInfo {
+      flex-direction: column;
+      gap: 30px;
+      &-header {
+        padding-left: 0;
+      }
+    }
   }
 }
