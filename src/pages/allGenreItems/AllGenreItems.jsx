@@ -8,7 +8,9 @@ import "./AllGenreItems.scss";
 
 const AllGenreItems = () => {
   const { genre } = useParams();
-  const url = `https://feed.entertainment.tv.theplatform.eu/f/jGxigC/bb-all-pas?form=json&fields=id,title,plprogram$thumbnails&byTags=genre:${genre}`;
+  let start = 1;
+  let end = 50;
+  const url = `https://feed.entertainment.tv.theplatform.eu/f/jGxigC/bb-all-pas?form=json&range=${start}-${end}&fields=id,title,plprogram$thumbnails&byTags=genre:${genre}`;
   const { data, error, isPending } = useFetch(url);
   const { entries: items } = data;
 

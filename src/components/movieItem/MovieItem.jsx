@@ -29,7 +29,7 @@ const MovieItem = ({ item }) => {
         <>
           <div className="movieItem__thumb">
             <div className="movieItem__thumb-imageHolder">
-              {coverWide ? (
+              {coverWide ? ( // If cover was not found, render placeholder instead
                 <img src={coverWide} alt="thumbnail" />
               ) : (
                 <div className="imagePlaceholder">

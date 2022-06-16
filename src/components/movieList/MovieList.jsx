@@ -37,14 +37,12 @@ const MovieList = ({ genre }) => {
           slidesPerView={3.5}
           loop={false}
           breakpoints={{
-            // when window width is >= 640px
             1600: {
               slidesPerView: 5.5,
             },
             1400: {
               slidesPerView: 4.5,
             },
-            // when window width is >= 768px
             768: {
               slidesPerView: 3.5,
               spaceBetween: 30,

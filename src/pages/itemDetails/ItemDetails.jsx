@@ -12,7 +12,7 @@ const ItemDetails = () => {
   const [descriptionEN, setDescriptionEN] = useState("");
   const { id } = useParams();
   const url = `https://feed.entertainment.tv.theplatform.eu/f/jGxigC/bb-all-pas/${id}?form=json`;
-  // const url = `https://feed.entertainment.tv.theplatform.eu/f/jGxigC/bb-all-pas/${id}?form=json&fields=title,description,plprogram$year,plprogram$thumbnails,plprogram$tags,plprogram$credits,plprogram$descriptionLocalized`; // credits array is empty?
+  // const url = `https://feed.entertainment.tv.theplatform.eu/f/jGxigC/bb-all-pas/${id}?form=json&fields=title,description,plprogram$year,plprogram$thumbnails,plprogram$tags,plprogram$credits,plprogram$descriptionLocalized`; // credits array is empty using fields
   const { data: item, error, isPending } = useFetch(url);
   const {
     title,
@@ -41,7 +41,8 @@ const ItemDetails = () => {
         <>
           <div className="itemDetails__mainInfo">
             <div className="itemDetails__mainInfo-imageHolder">
-              {coverTall ? (
+              
+              {coverTall ? ( // If cover was not found, render placeholder instead
                 <img src={coverTall} alt="thumbnail" />
               ) : (
                 <div className="imagePlaceholder">
@@ -60,7 +61,7 @@ const ItemDetails = () => {
             <div className="itemDetails__secondaryInfo-genre">
               {tags &&
                 tags.map((tag, index) => {
-                  if (tag.plprogram$scheme === "genre") {
+                  if (tag.plprogram$scheme === "genre") { // displays genres of item
                     return (
                       <div key={tag.plprogram$title + index}>
                         {tag.plprogram$title}
@@ -71,11 +72,11 @@ const ItemDetails = () => {
             </div>
           </div>
           <div className="itemDetails__description">
-            {description ? description : descriptionEN ? descriptionEN : null}
+            {description ? description : descriptionEN ? descriptionEN : null} 
           </div>
 
           <div className="itemDetails__participants">
-            {participants && (
+            {participants && ( // renders actors and directors
               <>
                 <div className="itemDetails__participants-crew">
                   <strong>Actors:</strong>

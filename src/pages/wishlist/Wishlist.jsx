@@ -7,10 +7,11 @@ import "./Wishlist.scss";
 
 const Wishlist = () => {
   const { wishlist } = useWishlist();
-
+/*
   useEffect(() => {
-    //console.log(wishlist);
+    console.log(wishlist);
   }, [wishlist]);
+  */
 
   return (
     <div className="wishlist">
