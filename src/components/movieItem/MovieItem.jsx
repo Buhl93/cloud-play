@@ -21,7 +21,7 @@ const MovieItem = ({ item }) => {
       // Get item id and remove all non numeric characters
       setId(item.id.replace(/\D/g, ""));
     }
-  }, []);
+  }, [item]);
 
   return (
     <div className="movieItem">

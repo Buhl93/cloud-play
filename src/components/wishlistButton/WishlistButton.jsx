@@ -31,7 +31,7 @@ const WishlistButton = ({ id, title, cover }) => {
     currentWishlist.some((item) => item.id === id)
       ? setItemIsInWishlist(true)
       : setItemIsInWishlist(false);
-  }, [currentWishlist]);
+  }, [currentWishlist, id]);
 
   return (
     <>

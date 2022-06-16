@@ -31,7 +31,7 @@ const ItemDetails = () => {
       setDescriptionEN(descriptionLocalized.en);
     }
     console.log(item);
-  }, [item]);
+  }, [item, descriptionLocalized]);
 
   return (
     <div className="itemDetails">
@@ -41,7 +41,6 @@ const ItemDetails = () => {
         <>
           <div className="itemDetails__mainInfo">
             <div className="itemDetails__mainInfo-imageHolder">
-              
               {coverTall ? ( // If cover was not found, render placeholder instead
                 <img src={coverTall} alt="thumbnail" />
               ) : (
@@ -61,7 +60,8 @@ const ItemDetails = () => {
             <div className="itemDetails__secondaryInfo-genre">
               {tags &&
                 tags.map((tag, index) => {
-                  if (tag.plprogram$scheme === "genre") { // displays genres of item
+                  if (tag.plprogram$scheme === "genre") {
+                    // displays genres of item
                     return (
                       <div key={tag.plprogram$title + index}>
                         {tag.plprogram$title}
@@ -72,7 +72,7 @@ const ItemDetails = () => {
             </div>
           </div>
           <div className="itemDetails__description">
-            {description ? description : descriptionEN ? descriptionEN : null} 
+            {description ? description : descriptionEN ? descriptionEN : null}
           </div>
 
           <div className="itemDetails__participants">

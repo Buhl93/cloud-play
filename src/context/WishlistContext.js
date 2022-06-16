@@ -1,4 +1,4 @@
-import { createContext, useReducer, useEffect } from "react";
+import { createContext, useReducer} from "react";
 
 // context is created
 export const WishlistContext = createContext();

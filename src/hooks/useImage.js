@@ -1,5 +1,3 @@
-import React from "react";
-
 export const useImage = (item, imageType) => {
   let coverWide = "";
   let coverTall = "";
