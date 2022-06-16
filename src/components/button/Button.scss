@@ -9,7 +9,8 @@
   background-color: colors.$primary;
   @include animations.transition();
 
-  &:hover, &:focus, &:active{
+  &:hover,
+  &:active {
     background-color: colors.$secondary;
   }
 }

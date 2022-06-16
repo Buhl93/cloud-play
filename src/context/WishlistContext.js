@@ -8,11 +8,10 @@ const wishlistReducer = (state, action) => {
   switch (action.type) {
     case "ADD_ITEM":
       // Adds the pssed item to the current array of items
-      return { ...state, wishlist: [...state.wishlist, action.payload] };
+      return {wishlist: [...state.wishlist, action.payload] };
     case "REMOVE_ITEM":
       // filters the array, only returning items with id not matching the passed id
       return {
-        ...state,
         wishlist: [
           ...state.wishlist.filter((item) => {
             return item.id !== action.payload;
@@ -28,7 +27,7 @@ const wishlistReducer = (state, action) => {
 export function WishlistProvider({ children }) {
   // initial wishlist is retieved from local storage
   const localWishlist = JSON.parse(localStorage.getItem("wishlisted-movies"));
-  
+
   // checks whether localWishlist is null, if it is set wishlist to empty array
   const wishlist = localWishlist ? localWishlist : [];
 

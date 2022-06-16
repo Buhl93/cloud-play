@@ -4,7 +4,7 @@
   max-width: calc(100% - 160px);
   margin: 0 auto;
 
-  h1{
+  h1 {
     margin-bottom: 30px;
   }
 
@@ -16,6 +16,10 @@
     &-item {
       width: calc((100% / 4) - ((30px * 3) / 4));
     }
+  }
+
+  .loadmore-btn {
+    margin-block: 20px;
   }
 }
 
@@ -34,6 +38,5 @@
 @media (max-width: screens.$media-sm) {
   .allGenreItems {
     max-width: calc(100% - 60px);
-
   }
 }
