@@ -45,9 +45,8 @@ const AllGenreItems = () => {
           ))}
       </div>
       <div className="loadmore-btn">
-
+        <Button onClickHandler={() => handleLoadMoreData()}>load more</Button>
       </div>
-      <Button onClickHandler={() => handleLoadMoreData()}>load more</Button>
     </div>
   );
 };
