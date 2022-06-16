@@ -41,7 +41,6 @@ const WishlistButton = ({ id, title, cover }) => {
       ) : (
         <div
           className="wishlistBtn"
-          onClick={() => addToWishlist({ id, title, cover })}
         >
           <FaRegHeart />
         </div>
