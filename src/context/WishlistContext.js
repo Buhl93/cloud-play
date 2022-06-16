@@ -31,7 +31,7 @@ export function WishlistProvider({ children }) {
 
   // initial state and dispatch funtion is created
   const [state, dispatch] = useReducer(wishlistReducer, {
-    wishlist: [],
+    wishlist: [...wishlist],
   });
 
   // dispatch function for adding item to wishlist - decalering type name and payload
