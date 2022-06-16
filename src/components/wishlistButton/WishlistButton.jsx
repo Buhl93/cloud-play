@@ -9,10 +9,14 @@ const WishlistButton = ({ id, title, cover }) => {
   const [currentWishlist, setCurrentWishlist] = useState(
     JSON.parse(localStorage.getItem("wishlisted-movies"))
   );
+  const [itemIsInWishlist, setItemIsInWishlist] = useState(false);
+
   // checks whether the current item is in the current wishlist - determaines which button to render
-  const [itemIsInWishlist, setItemIsInWishlist] = useState(
-    currentWishlist.some((item) => item.id === id)
-  );
+  useEffect(() => {
+    if (currentWishlist) {
+      setItemIsInWishlist(currentWishlist.some((item) => item.id === id));
+    }
+  }, [currentWishlist]);
 
   // saves a stringifyed version of the item to local storage
   const saveToLocalStorage = (wishlist) => {
