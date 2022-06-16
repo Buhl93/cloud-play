@@ -27,11 +27,14 @@ const wishlistReducer = (state, action) => {
 // provider is created to wrap the parts of the app that should have access to its values
 export function WishlistProvider({ children }) {
   // initial wishlist is retieved from local storage
-  const wishlist = JSON.parse(localStorage.getItem("wishlisted-movies"));
+  const localWishlist = JSON.parse(localStorage.getItem("wishlisted-movies"));
+  
+  // checks whether localWishlist is null, if it is set wishlist to empty array
+  const wishlist = localWishlist ? localWishlist : [];
 
   // initial state and dispatch funtion is created
   const [state, dispatch] = useReducer(wishlistReducer, {
-    wishlist: [...(wishlist ? wishlist : [])],
+    wishlist: [...wishlist],
   });
 
   // dispatch function for adding item to wishlist - decalering type name and payload
