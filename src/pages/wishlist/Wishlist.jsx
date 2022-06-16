@@ -7,7 +7,7 @@ import "./Wishlist.scss";
 
 const Wishlist = () => {
   const { wishlist } = useWishlist();
-/*
+  /*
   useEffect(() => {
     console.log(wishlist);
   }, [wishlist]);

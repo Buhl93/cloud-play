@@ -31,8 +31,6 @@ const WishlistButton = ({ id, title, cover }) => {
     // console.log(wishlist);
   }, [wishlist]);
 
-  
-
   return (
     <>
       {/* Different button is rendered depending on whether the current item is in the current wishlist or not */}
@@ -43,7 +41,7 @@ const WishlistButton = ({ id, title, cover }) => {
       ) : (
         <div
           className="wishlistBtn"
-          onClick={() => console.log("hi")}
+          onClick={() => addToWishlist({ id, title, cover })}
         >
           <FaRegHeart />
         </div>
